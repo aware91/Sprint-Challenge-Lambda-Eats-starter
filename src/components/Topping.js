@@ -1,4 +1,5 @@
 import React from 'react';
+import Toppings from './Toppings'
 
 const Topping = () => {
     const initialFormState = {
@@ -6,7 +7,12 @@ const Topping = () => {
         sauce: '',
         toppings: '',
         instructions: '',
+        quantity: '',
+        number: '',
     }
+
+    
+
     return (
         <div>
             <h3>Build Your Own Pizza</h3>
@@ -39,6 +45,28 @@ const Topping = () => {
                 </fieldset>
                 <h4>Add Toppings</h4>
                 <Toppings />
+                <h4>Special instructions</h4>
+                <label htmlFor='instructions'>
+                    <textarea 
+                        name='instructions' 
+                        onChange={inputChange}
+                        value={initialFormState.instructions}
+                    />
+                    {errors.motivation.length > 0 ? (
+                        <p className="error">{errors.motivation}</p>
+                    ) : null}
+                </label>
+                <label for='quantity'>
+                    <input 
+                        type='number' 
+                        id='quantity' 
+                        name='quantity' 
+                        min='1' 
+                        max='20' />
+                </label>
+                <button disabled={isButtonDisabled} type='submit'>
+                    Add to Order
+                </button>
             </div>
         </div>
     )
