@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Toppings from './Toppings'
+// import Toppings from './Toppings'
 import axios from 'axios';
 import * as yup from 'yup';
 
@@ -63,6 +63,7 @@ const Topping = () => {
     const formSchema = yup.object().shape({
         size: yup.string().required('Must Choose a Size'),
         sauce: yup.string().required('Must Choose a Sauce'),
+        toppings: yup.boolean().oneOf([true], 'Please Choose a Topping'),
         instructions: yup.boolean().oneOf([true], 'Please Choose a Topping'),
         quantity: yup.string().required(),
     })
@@ -83,8 +84,9 @@ const Topping = () => {
             {serverError ? <p className='error'>{serverError}</p> : null}
             <h3>Build Your Own Pizza</h3>
             <div>
-                <h4>Choice of Size</h4>
+                {/* Size of Pizza */}
                 <label htmlFor='size'>
+                <h4>Choice of Size</h4>
                     Required
                     <select id='size' name='size' onChange={inputChange}>
                         <option value=''>Select</option>
@@ -93,6 +95,7 @@ const Topping = () => {
                         <option value='large'>Large</option>
                     </select>
                 </label>
+                {/* Sauce Choice */}
                 <label htmlFor='sauce'>
                     <h4>Choice of Sauce</h4>
                     <p>Required</p>
@@ -110,8 +113,137 @@ const Topping = () => {
                     </input>
                 </label>
                 <h4>Add Toppings</h4>
-                <Toppings />
+                {/* Toppings div */}
+                <div>
+                    <label htmlFor='toppings' className='toppings'>
+                        <input 
+                            type='checkbox' 
+                            name='toppings' 
+                            checked={initialFormState.toppings}
+                            onChange={inputChange}
+                        />
+                        Pepperoni
+                    </label>
+                    <label htmlFor='toppings' className='toppings'>
+                        <input 
+                            type='checkbox' 
+                            name='toppings' 
+                            checked={initialFormState.toppings}
+                            onChange={inputChange}
+                        />
+                        Sausage
+                    </label>
+                    <label htmlFor='toppings' className='toppings'>
+                        <input 
+                            type='checkbox' 
+                            name='toppings' 
+                            checked={initialFormState.toppings}
+                            onChange={inputChange}
+                        />
+                        Canadian Bacon
+                    </label>
+                    <label htmlFor='toppings' className='toppings'>
+                        <input 
+                            type='checkbox' 
+                            name='toppings' 
+                            checked={initialFormState.toppings}
+                            onChange={inputChange}
+                        />
+                        Spicy Italian Sausage
+                    </label>
+                    <label htmlFor='toppings' className='toppings'>
+                        <input 
+                            type='checkbox' 
+                            name='toppings' 
+                            checked={initialFormState.toppings}
+                            onChange={inputChange}
+                        />
+                        Grilled Chicken
+                    </label>
+                    <label htmlFor='toppings' className='toppings'>
+                        <input 
+                            type='checkbox' 
+                            name='toppings' 
+                            checked={initialFormState.toppings}
+                            onChange={inputChange}
+                        />
+                        Onions
+                    </label>
+                    <label htmlFor='toppings' className='toppings'>
+                        <input 
+                            type='checkbox' 
+                            name='toppings' 
+                            checked={initialFormState.toppings}
+                            onChange={inputChange}
+                        />
+                        Green Pepper
+                    </label>
+                    <label htmlFor='toppings' className='toppings'>
+                        <input 
+                            type='checkbox' 
+                            name='toppings' 
+                            checked={initialFormState.toppings}
+                            onChange={inputChange}
+                        />
+                        Diced Tomatoes
+                    </label>
+                    <label htmlFor='toppings' className='toppings'>
+                        <input 
+                            type='checkbox' 
+                            name='toppings' 
+                            checked={initialFormState.toppings}
+                            onChange={inputChange}
+                        />
+                        Black Olives
+                    </label>
+                    <label htmlFor='toppings' className='toppings'>
+                        <input 
+                            type='checkbox' 
+                            name='toppings' 
+                            checked={initialFormState.toppings}
+                            onChange={inputChange}
+                        />
+                        Roasted Garlic
+                    </label>
+                    <label htmlFor='toppings' className='toppings'>
+                        <input 
+                            type='checkbox' 
+                            name='toppings' 
+                            checked={initialFormState.toppings}
+                            onChange={inputChange}
+                        />
+                        Artichoke Hearts
+                    </label>
+                    <label htmlFor='toppings' className='toppings'>
+                        <input 
+                            type='checkbox' 
+                            name='toppings' 
+                            checked={initialFormState.toppings}
+                            onChange={inputChange}
+                        />
+                        Three Cheese
+                    </label>
+                    <label htmlFor='toppings' className='toppings'>
+                        <input 
+                            type='checkbox' 
+                            name='toppings' 
+                            checked={initialFormState.toppings}
+                            onChange={inputChange}
+                        />
+                        Pineapple
+                    </label>
+                    <label htmlFor='toppings' className='toppings'>
+                        <input 
+                            type='checkbox' 
+                            name='toppings' 
+                            checked={initialFormState.toppings}
+                            onChange={inputChange}
+                        />
+                        Extra Cheese
+                    </label>
+                </div>
                 <h4>Special instructions</h4>
+                {/* Instructions for extra order */}
                 <label htmlFor='instructions'>
                     <textarea 
                         name='instructions' 
@@ -119,6 +251,7 @@ const Topping = () => {
                         value={initialFormState.instructions}
                     />
                 </label>
+                {/* Quantity of Pizza's */}
                 <label for='quantity'>
                     <input 
                         type='number' 
