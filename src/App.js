@@ -22,7 +22,7 @@ const App = () => {
         </nav>
       </div>
       <button onClick={routeToPizza} className='button'>Order Pizza</button>
-      <Route exact path='/' component='Home' />
+      <Route exact path="/" />
       <Route path='/pizza'>
         <Pizza />
       </Route>
