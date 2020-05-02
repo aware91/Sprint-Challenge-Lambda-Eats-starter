@@ -140,6 +140,7 @@ const Topping = () => {
                             name='toppings' 
                             checked={formState.toppings}
                             onChange={inputChange}
+                            value="pepperoni"
                         />
                         Pepperoni
                     </label>
@@ -149,6 +150,7 @@ const Topping = () => {
                             name='toppings' 
                             checked={formState.toppings}
                             onChange={inputChange}
+                            value="sausage"
                         />
                         Sausage
                     </label>
@@ -158,6 +160,7 @@ const Topping = () => {
                             name='toppings' 
                             checked={formState.toppings}
                             onChange={inputChange}
+                            value="bacon"
                         />
                         Canadian Bacon
                     </label>
@@ -167,6 +170,7 @@ const Topping = () => {
                             name='toppings' 
                             checked={formState.toppings}
                             onChange={inputChange}
+                            value="spicy"
                         />
                         Spicy Italian Sausage
                     </label>
@@ -176,6 +180,7 @@ const Topping = () => {
                             name='toppings' 
                             checked={formState.toppings}
                             onChange={inputChange}
+                            value="chicken"
                         />
                         Grilled Chicken
                     </label>
@@ -185,6 +190,7 @@ const Topping = () => {
                             name='toppings' 
                             checked={formState.toppings}
                             onChange={inputChange}
+                            value="onions"
                         />
                         Onions
                     </label>
@@ -194,6 +200,7 @@ const Topping = () => {
                             name='toppings' 
                             checked={formState.toppings}
                             onChange={inputChange}
+                            value="pepper"
                         />
                         Green Pepper
                     </label>
@@ -203,6 +210,7 @@ const Topping = () => {
                             name='toppings' 
                             checked={formState.toppings}
                             onChange={inputChange}
+                            value="tomatoes"
                         />
                         Diced Tomatoes
                     </label>
@@ -212,6 +220,7 @@ const Topping = () => {
                             name='toppings' 
                             checked={formState.toppings}
                             onChange={inputChange}
+                            value="olives"
                         />
                         Black Olives
                     </label>
@@ -221,6 +230,7 @@ const Topping = () => {
                             name='toppings' 
                             checked={formState.toppings}
                             onChange={inputChange}
+                            value="garlic"
                         />
                         Roasted Garlic
                     </label>
@@ -230,6 +240,7 @@ const Topping = () => {
                             name='toppings' 
                             checked={formState.toppings}
                             onChange={inputChange}
+                            value="artichoke"
                         />
                         Artichoke Hearts
                     </label>
@@ -239,6 +250,7 @@ const Topping = () => {
                             name='toppings' 
                             checked={formState.toppings}
                             onChange={inputChange}
+                            value="threecheese"
                         />
                         Three Cheese
                     </label>
@@ -248,6 +260,7 @@ const Topping = () => {
                             name='toppings' 
                             checked={formState.toppings}
                             onChange={inputChange}
+                            value="pineapple"
                         />
                         Pineapple
                     </label>
@@ -257,6 +270,7 @@ const Topping = () => {
                             name='toppings' 
                             checked={formState.toppings}
                             onChange={inputChange}
+                            value="extracheese"
                         />
                         Extra Cheese
                     </label>
