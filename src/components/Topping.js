@@ -8,6 +8,7 @@ import '../App.css';
 const Topping = () => {
 
     const initialFormState = {
+        name: '',
         size: '',
         sauce: '',
         toppings: '',
@@ -49,11 +50,12 @@ const Topping = () => {
             setPost(res.data);
             console.log('success', post)
             setFormState({
-            size: '',
-            sauce: '',
-            toppings: '',
-            instructions: '',
-            quantity: '',
+                name: '',
+                size: '',
+                sauce: '',
+                toppings: '',
+                instructions: '',
+                quantity: '',
             });
             setServerError(null);
             })
@@ -63,11 +65,7 @@ const Topping = () => {
     };
 
     const formSchema = yup.object().shape({
-        size: yup.string().required('Must Choose a Size'),
-        sauce: yup.string().required('Must Choose a Sauce'),
-        toppings: yup.boolean().oneOf([true], 'Please Choose a Topping'),
-        instructions: yup.string().required('Please Choose a Topping'),
-        quantity: yup.string().required(),
+        name: yup.string().required("Name is a required field"),
     })
 
     const inputChange = e => {
@@ -84,7 +82,17 @@ const Topping = () => {
     return (
         <form onSubmit={formSubmit} className='form'>
             {serverError ? <p className='error'>{serverError}</p> : null}
-            <h3>Build Your Own Pizza</h3>
+            <label htmlFor="name" className='name'>
+                <h4 className='nameHeader'>Name</h4>
+                <input
+                id="name"
+                type="text"
+                name="name"
+                onChange={inputChange}
+                value={formState.name}
+                />
+                {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
+            </label>
             <div className='formWidth'>
                 {/* Size of Pizza */}
                 <label htmlFor='size' className='size'>
@@ -419,7 +427,7 @@ const Topping = () => {
                         <option value='15'>15</option>
                     </select>
                 </label>
-            <button type='submit'>
+            <button type='submit' disabled={isButtonDisabled}>
                     Add to Order
                 </button>
             </div>

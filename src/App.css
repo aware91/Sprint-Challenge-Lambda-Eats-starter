@@ -126,6 +126,17 @@
   align-items: center;
   width: 100%;}
 
+  .name {
+    width: 100%;
+  }
+  
+  .nameHeader {
+    background: dimgray;
+    width: 98%;
+    color: orange;
+    padding: 1%;
+  }
+
 .size {
   width: 100%;
 }
