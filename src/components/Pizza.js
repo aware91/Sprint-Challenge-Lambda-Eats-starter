@@ -6,9 +6,9 @@ const Pizza = () => {
 
 
     return (
-        <div>
-            <h2>Build Your Own Pizza</h2>
-            <img src='' alt='You Pizza Topping' />
+        <div className='pizza'>
+            <h2 className='pizzaHeader'>Build Your Own Pizza</h2>
+            <img src='' alt='You Pizza Topping' className='pizzaImg' />
             <Topping />
         </div>
     )

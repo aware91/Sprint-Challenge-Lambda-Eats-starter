@@ -10,16 +10,18 @@ const App = () => {
     history.push("/pizza");
   };
   return (
-    <div>
-      <nav>
-        <h1>Lambda Eats</h1>
-        <p>You can remove this code and create your own header</p>
-        <div>
-          <Link to='/'>Home</Link>
-          <Link to='/help'>Help</Link>
+    <div className='top'>
+      <div className='header'>
+        <div className='title'>
+          <h1>Lambda Eats</h1>
+          <p>You can remove this code and create your own header</p>
         </div>
-      </nav>
-      <button onClick={routeToPizza}>Order Pizza</button>
+        <nav className='nav'>
+          <Link to='/' className='navButton'>Home</Link>
+          <Link to='/help' className='navButton'>Help</Link>
+        </nav>
+      </div>
+      <button onClick={routeToPizza} className='button'>Order Pizza</button>
       <Route exact path='/' component='Home' />
       <Route path='/pizza'>
         <Pizza />

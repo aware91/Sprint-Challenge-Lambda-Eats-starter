@@ -89,7 +89,7 @@ const Topping = () => {
                 {/* Size of Pizza */}
                 <label htmlFor='size' className='size'>
                 <h4 className='sizeHeader'>Choice of Size</h4>
-                    Required
+                    <p>Required</p>
                     <select 
                         id='size' 
                         name='size' 
@@ -139,7 +139,9 @@ const Topping = () => {
                 </label>
                 {/* ReactStrape checkboxes */}
                     <FormGroup className='toppings'>
-                        <Label for='toppings' className='toppingsHeader'>Add Toppings</Label>
+                        <Label for='toppings' className='toppingsHeader'>
+                            Add Toppings
+                        </Label>
                         <div className='toppingsCheckbox'>
                             <CustomInput
                                 type='checkbox'
@@ -386,17 +388,19 @@ const Topping = () => {
                     </label>
                 </div> */}
                 {/* Instructions for extra order */}
-                <label htmlFor='instructions'>
+                <label htmlFor='instructions' className='instructions'>
                 <h4 className='instrHeader'>Special instructions</h4>
                     <textarea 
                         name='instructions' 
                         onChange={inputChange}
                         value={formState.instructions}
                         data-cy="instructions"
+                        className='instrBox'
                     />
                 </label>
                 {/* Quantity of Pizza's */}
-                <label htmlFor='quantity'>
+                <label htmlFor='quantity' className='quantity'>
+                    <h4>Quantity</h4>
                 <select id='quantity' name='quantity' onChange={inputChange}>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
@@ -419,6 +423,7 @@ const Topping = () => {
                     Add to Order
                 </button>
             </div>
+            <pre>{JSON.stringify(post, null, 2)}</pre>
         </form>
     )
 }
