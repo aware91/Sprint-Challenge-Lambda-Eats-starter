@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import Toppings from './Toppings'
 import axios from 'axios';
 import * as yup from 'yup';
+import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
 
 const Topping = () => {
 
@@ -64,7 +65,7 @@ const Topping = () => {
         size: yup.string().required('Must Choose a Size'),
         sauce: yup.string().required('Must Choose a Sauce'),
         toppings: yup.boolean().oneOf([true], 'Please Choose a Topping'),
-        instructions: yup.boolean().oneOf([true], 'Please Choose a Topping'),
+        instructions: yup.string().required('Please Choose a Topping'),
         quantity: yup.string().required(),
     })
 
@@ -132,8 +133,90 @@ const Topping = () => {
                     <label for='spinach'>Spinach Alfredo</label>
                 </label>
                 <h4>Add Toppings</h4>
+                {/* ReactStrape checkboxes */}
+                <Form>
+                    <FormGroup>
+                        <Label for='toppings'>Toppings</Label>
+                        <div>
+                            <CustomInput
+                                type='checkbox'
+                                id='pepperoni'
+                                label='Pepperoni'
+                            />
+                            <CustomInput
+                                type='checkbox'
+                                id='pepperoni'
+                                label='Sausage'
+                            /><CustomInput
+                            type='checkbox'
+                            id='pepperoni'
+                            label='Canadian Bacon'
+                        />
+                        <CustomInput
+                                type='checkbox'
+                                id='pepperoni'
+                                label='Spicy Italian Sausage'
+                            />
+                            <CustomInput
+                                type='checkbox'
+                                id='pepperoni'
+                                label='Grilled Chicken'
+                            />
+                            <CustomInput
+                                type='checkbox'
+                                id='pepperoni'
+                                label='Onions'
+                            />
+                            <CustomInput
+                                type='checkbox'
+                                id='pepperoni'
+                                label='Green Pepper'
+                            />
+                            <CustomInput
+                                type='checkbox'
+                                id='pepperoni'
+                                label='Diced Tomatoes'
+                            />
+                            <CustomInput
+                                type='checkbox'
+                                id='pepperoni'
+                                label='Black Olives'
+                            />
+                            <CustomInput
+                                type='checkbox'
+                                id='pepperoni'
+                                label='Roasted Garlic'
+                            />
+                            <CustomInput
+                                type='checkbox'
+                                id='pepperoni'
+                                label='Artichoke Hearts'
+                            />
+                            <CustomInput
+                                type='checkbox'
+                                id='pepperoni'
+                                label='Three Cheese'
+                            />
+                            <CustomInput
+                                type='checkbox'
+                                id='pepperoni'
+                                label='Pineapple'
+                            />
+                            <CustomInput
+                                type='checkbox'
+                                id='pepperoni'
+                                label='Extra Cheese'
+                            />
+                        </div>
+                        <CustomInput
+                                type='checkbox'
+                                id='pepperoni'
+                                label='No Toppings'
+                            />
+                    </FormGroup>
+                </Form>
                 {/* Toppings div */}
-                <div>
+                {/* <div>
                     <label htmlFor='toppings' className='toppings'>
                         <input 
                             type='checkbox' 
@@ -274,14 +357,24 @@ const Topping = () => {
                         />
                         Extra Cheese
                     </label>
-                </div>
+                    <label htmlFor='toppings' className='toppings'>
+                        <input 
+                            type='checkbox' 
+                            name='toppings' 
+                            checked={formState.toppings}
+                            onChange={inputChange}
+                            value="notoppings"
+                        />
+                        No Toppings
+                    </label>
+                </div> */}
                 <h4>Special instructions</h4>
                 {/* Instructions for extra order */}
                 <label htmlFor='instructions'>
                     <textarea 
                         name='instructions' 
                         onChange={inputChange}
-                        value={initialFormState.instructions}
+                        value={formState.instructions}
                     />
                 </label>
                 {/* Quantity of Pizza's */}
@@ -292,7 +385,7 @@ const Topping = () => {
                         name='quantity' 
                         min='1' 
                         max='20'
-                        value='1'
+                        value=''
                         />
                 </label>
                 <button disabled={isButtonDisabled} type='submit'>
