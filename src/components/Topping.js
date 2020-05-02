@@ -99,18 +99,37 @@ const Topping = () => {
                 <label htmlFor='sauce'>
                     <h4>Choice of Sauce</h4>
                     <p>Required</p>
-                    <input type='radio' id='original' name='sauce' value='original'>
-                        <label for='original'>Original Red</label>
-                    </input><br></br>
-                    <input type='radio' id='garlic' name='sauce' value='garlic'>
-                        <label for='garlic'>Garlic Ranch</label>
-                    </input><br></br>
-                    <input type='radio' id='bbq' name='sauce' value='bbq'>
-                        <label for='bbq'>BBQ Sauce</label>
-                    </input><br></br>
-                    <input type='radio' id='spinach' name='sauce' value='spinach'>
-                        <label for='spinach'>Spinach Alfredo</label>
-                    </input>
+                    {/* Original Sauce */}
+                    <input 
+                        type='radio' 
+                        id='original' 
+                        name='sauce' 
+                        value='original' />
+                    <label for='original'>Original Red</label><br/>
+                    {/* Garlic Sauce */}
+                    <input 
+                        type='radio' 
+                        id='garlic' 
+                        name='sauce' 
+                        value='garlic'
+                        />
+                    <label for='garlic'>Garlic Ranch</label><br/>
+                    {/* BBQ Sauce */}
+                    <input 
+                        type='radio' 
+                        id='bbq' 
+                        name='sauce' 
+                        value='bbq'
+                        />
+                    <label for='bbq'>BBQ Sauce</label><br/>
+                    {/* Spinach Sauce */}
+                    <input 
+                        type='radio' 
+                        id='spinach' 
+                        name='sauce' 
+                        value='spinach'
+                        />
+                    <label for='spinach'>Spinach Alfredo</label>
                 </label>
                 <h4>Add Toppings</h4>
                 {/* Toppings div */}
