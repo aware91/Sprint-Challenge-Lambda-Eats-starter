@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import * as yup from 'yup';
 
 const Toppings = () => {
-    const [errors, setErrors] = useState(initialFormState);
-    const [formState, setFormState] = useState(initialFormState)
 
     const initialFormState = {
         toppings: ''
     }
+
+    const [errors, setErrors] = useState(initialFormState);
+    const [formState, setFormState] = useState(initialFormState)
 
     const formSchema = yup.object().shape({
         toppings: yup.boolean().oneOf([true], 'Please Choose a Topping')

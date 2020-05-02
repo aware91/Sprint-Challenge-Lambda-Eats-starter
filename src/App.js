@@ -1,9 +1,14 @@
 import React from "react";
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import Pizza from './components/Pizza';
+import { useHistory } from 'react-router-dom';
 
 const App = () => {
-
+  const history = useHistory();
+  console.log(history);
+  const routeToPizza = event => {
+    history.push("/pizza");
+  };
   return (
     <div>
       <nav>
@@ -14,12 +19,11 @@ const App = () => {
           <Link to='/help'>Help</Link>
         </div>
       </nav>
-      <Switch>
-        <Route path='/pizza'>
-          <Pizza />
-        </Route>
-        <Route path='/' component='Home' />
-      </Switch>
+      <button onClick={routeToPizza}>Order Pizza</button>
+      <Route exact path='/' component='Home' />
+      <Route path='/pizza'>
+        <Pizza />
+      </Route>
     </div>
   );
 };

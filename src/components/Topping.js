@@ -4,11 +4,6 @@ import axios from 'axios';
 import * as yup from 'yup';
 
 const Topping = () => {
-    const [post, setPost] = useState([])
-    const [serverError, setServerError] = useState('')
-    const [formState, setFormState] = useState(initialFormState)
-    const [isButtonDisabled, seIsButtonDisabled] = useState(true)
-    const [error, setError] = useState(initialFormState)
 
     const initialFormState = {
         size: '',
@@ -18,16 +13,22 @@ const Topping = () => {
         quantity: '',
     }
 
+    const [post, setPost] = useState([])
+    const [serverError, setServerError] = useState('')
+    const [formState, setFormState] = useState(initialFormState)
+    const [isButtonDisabled, seIsButtonDisabled] = useState(true)
+    const [errors, setErrors] = useState(initialFormState)
+
     const validateChange = e => {
         yup
             .reach(formSchema, e.target.name)
             .validate(e.target.value)
             .then(valid => {
-                setErrors({ ...error, [e.target.name]: '' })
+                setErrors({ ...errors, [e.target.name]: '' })
             })
             .catch(err => {
                 console.log('error', err);
-                setError({ ...errors, [e.target.name]: err.errors[0] })
+                setErrors({ ...errors, [e.target.name]: err.errors[0] })
             })
     }
 
@@ -66,6 +67,17 @@ const Topping = () => {
         quantity: yup.string().required(),
     })
 
+    const inputChange = e => {
+        e.persist();
+        const newFormData = {
+            ...initialFormState, 
+            [e.target.name]: 
+                e.target.type === 'checkbox' ? e.target.checked : e.target.value
+        }
+        validateChange(e);
+        setFormState(newFormData);
+    }
+
     return (
         <form onSubmit={formSubmit}>
             {serverError ? <p className='error'>{serverError}</p> : null}
@@ -78,11 +90,11 @@ const Topping = () => {
                         <option value=''>Select</option>
                         <option value='small'>Small</option>
                         <option value='medium'>Medium</option>
-                        <option value='Large'>Large</option>
+                        <option value='large'>Large</option>
                     </select>
                 </label>
-                <fieldset>
-                    <legend>Choice of Sauce</legend>
+                <label htmlFor='sauce'>
+                    <h4>Choice of Sauce</h4>
                     <p>Required</p>
                     <input type='radio' id='original' name='sauce' value='original'>
                         <label for='original'>Original Red</label>
@@ -96,7 +108,7 @@ const Topping = () => {
                     <input type='radio' id='spinach' name='sauce' value='spinach'>
                         <label for='spinach'>Spinach Alfredo</label>
                     </input>
-                </fieldset>
+                </label>
                 <h4>Add Toppings</h4>
                 <Toppings />
                 <h4>Special instructions</h4>
@@ -106,9 +118,6 @@ const Topping = () => {
                         onChange={inputChange}
                         value={initialFormState.instructions}
                     />
-                    {errors.motivation.length > 0 ? (
-                        <p className="error">{errors.motivation}</p>
-                    ) : null}
                 </label>
                 <label for='quantity'>
                     <input 
