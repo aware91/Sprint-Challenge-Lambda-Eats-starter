@@ -36,3 +36,82 @@
     transform: rotate(360deg);
   }
 }
+/* Toppings CSS */
+.form {
+  border: 1px solid red;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.formWidth {
+  display:flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: 1px solid orange;
+}
+
+.size {
+  width: 100%;
+}
+
+.sizeHeader {
+  background: dimgray;
+  width: 98%;
+  color: orange;
+  padding: 1%;
+}
+
+.sauce {
+  width: 100%;
+}
+
+.sauceHeader {
+  background: dimgray;
+  width: 98%;
+  color: orange;
+  padding: 1%;
+}
+
+.toppings {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 5% auto;
+}
+
+.toppingsHeader {
+  background: dimgray;
+  width: 98%;
+  color: orange;
+  padding: 1%;
+  margin-bottom: 2%;
+}
+
+.toppingsCheckbox {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+}
+
+.topping {
+  width: 48%;
+}
+
+.instrHeader {
+  background: dimgray;
+  width: 98%;
+  color: orange;
+  padding: 1%;
+  margin-bottom: 2%;
+}

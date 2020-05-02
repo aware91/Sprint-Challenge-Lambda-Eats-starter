@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as yup from 'yup';
 import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
+import '../App.css';
 
 const Topping = () => {
 
@@ -81,24 +82,28 @@ const Topping = () => {
     }
 
     return (
-        <form onSubmit={formSubmit}>
+        <form onSubmit={formSubmit} className='form'>
             {serverError ? <p className='error'>{serverError}</p> : null}
             <h3>Build Your Own Pizza</h3>
-            <div>
+            <div className='formWidth'>
                 {/* Size of Pizza */}
-                <label htmlFor='size'>
-                <h4>Choice of Size</h4>
+                <label htmlFor='size' className='size'>
+                <h4 className='sizeHeader'>Choice of Size</h4>
                     Required
-                    <select id='size' name='size' onChange={inputChange}>
-                        <option value=''>Select</option>
-                        <option value='small'>Small</option>
-                        <option value='medium'>Medium</option>
-                        <option value='large'>Large</option>
+                    <select 
+                        id='size' 
+                        name='size' 
+                        onChange={inputChange} 
+                        data-cy="size">
+                        <option value='1'>Select</option>
+                        <option value='2'>Small</option>
+                        <option value='3'>Medium</option>
+                        <option value='4'>Large</option>
                     </select>
                 </label>
                 {/* Sauce Choice */}
-                <label htmlFor='sauce'>
-                    <h4>Choice of Sauce</h4>
+                <label htmlFor='sauce' className='sauce' className='sauce'>
+                    <h4 className='sauceHeader'>Choice of Sauce</h4>
                     <p>Required</p>
                     {/* Original Sauce */}
                     <input 
@@ -106,7 +111,7 @@ const Topping = () => {
                         id='original' 
                         name='sauce' 
                         value='original' />
-                    <label for='original'>Original Red</label><br/>
+                    <label htmlFor='original'>Original Red</label><br/>
                     {/* Garlic Sauce */}
                     <input 
                         type='radio' 
@@ -114,7 +119,7 @@ const Topping = () => {
                         name='sauce' 
                         value='garlic'
                         />
-                    <label for='garlic'>Garlic Ranch</label><br/>
+                    <label htmlFor='garlic'>Garlic Ranch</label><br/>
                     {/* BBQ Sauce */}
                     <input 
                         type='radio' 
@@ -122,7 +127,7 @@ const Topping = () => {
                         name='sauce' 
                         value='bbq'
                         />
-                    <label for='bbq'>BBQ Sauce</label><br/>
+                    <label htmlFor='bbq'>BBQ Sauce</label><br/>
                     {/* Spinach Sauce */}
                     <input 
                         type='radio' 
@@ -130,82 +135,95 @@ const Topping = () => {
                         name='sauce' 
                         value='spinach'
                         />
-                    <label for='spinach'>Spinach Alfredo</label>
+                    <label htmlFor='spinach'>Spinach Alfredo</label>
                 </label>
-                <h4>Add Toppings</h4>
                 {/* ReactStrape checkboxes */}
-                <Form>
-                    <FormGroup>
-                        <Label for='toppings'>Toppings</Label>
-                        <div>
+                    <FormGroup className='toppings'>
+                        <Label for='toppings' className='toppingsHeader'>Add Toppings</Label>
+                        <div className='toppingsCheckbox'>
                             <CustomInput
                                 type='checkbox'
                                 id='pepperoni'
                                 label='Pepperoni'
+                                className='topping'
+                            />
+                            <CustomInput
+                                type='checkbox'
+                                id='sausage'
+                                label='Sausage'
+                                className='topping'
+                            />
+                            <CustomInput
+                                type='checkbox'
+                                id='canadianbacon'
+                                label='Canadian Bacon'
+                                className='topping'
                             />
                             <CustomInput
                                 type='checkbox'
                                 id='pepperoni'
-                                label='Sausage'
-                            /><CustomInput
-                            type='checkbox'
-                            id='pepperoni'
-                            label='Canadian Bacon'
-                        />
-                        <CustomInput
-                                type='checkbox'
-                                id='pepperoni'
                                 label='Spicy Italian Sausage'
+                                className='topping'
                             />
                             <CustomInput
                                 type='checkbox'
                                 id='pepperoni'
                                 label='Grilled Chicken'
+                                className='topping'
                             />
                             <CustomInput
                                 type='checkbox'
                                 id='pepperoni'
                                 label='Onions'
+                                className='topping'
                             />
                             <CustomInput
                                 type='checkbox'
                                 id='pepperoni'
                                 label='Green Pepper'
+                                className='topping'
                             />
                             <CustomInput
                                 type='checkbox'
                                 id='pepperoni'
                                 label='Diced Tomatoes'
+                                className='topping'
                             />
                             <CustomInput
                                 type='checkbox'
                                 id='pepperoni'
                                 label='Black Olives'
+                                className='topping'
                             />
                             <CustomInput
                                 type='checkbox'
                                 id='pepperoni'
                                 label='Roasted Garlic'
+                                className='topping'
                             />
                             <CustomInput
                                 type='checkbox'
                                 id='pepperoni'
                                 label='Artichoke Hearts'
+                                className='topping'
                             />
                             <CustomInput
                                 type='checkbox'
                                 id='pepperoni'
                                 label='Three Cheese'
+                                className='topping'
                             />
                             <CustomInput
                                 type='checkbox'
                                 id='pepperoni'
                                 label='Pineapple'
+                                className='topping'
                             />
                             <CustomInput
                                 type='checkbox'
                                 id='pepperoni'
                                 label='Extra Cheese'
+                                className='topping'
                             />
                         </div>
                         <CustomInput
@@ -214,7 +232,6 @@ const Topping = () => {
                                 label='No Toppings'
                             />
                     </FormGroup>
-                </Form>
                 {/* Toppings div */}
                 {/* <div>
                     <label htmlFor='toppings' className='toppings'>
@@ -368,25 +385,35 @@ const Topping = () => {
                         No Toppings
                     </label>
                 </div> */}
-                <h4>Special instructions</h4>
                 {/* Instructions for extra order */}
                 <label htmlFor='instructions'>
+                <h4 className='instrHeader'>Special instructions</h4>
                     <textarea 
                         name='instructions' 
                         onChange={inputChange}
                         value={formState.instructions}
+                        data-cy="instructions"
                     />
                 </label>
                 {/* Quantity of Pizza's */}
-                <label for='quantity'>
-                    <input 
-                        type='number' 
-                        id='quantity' 
-                        name='quantity' 
-                        min='1' 
-                        max='20'
-                        value=''
-                        />
+                <label htmlFor='quantity'>
+                <select id='quantity' name='quantity' onChange={inputChange}>
+                        <option value='1'>1</option>
+                        <option value='2'>2</option>
+                        <option value='3'>3</option>
+                        <option value='4'>4</option>
+                        <option value='5'>5</option>
+                        <option value='6'>6</option>
+                        <option value='7'>7</option>
+                        <option value='8'>8</option>
+                        <option value='9'>9</option>
+                        <option value='10'>10</option>
+                        <option value='11'>11</option>
+                        <option value='12'>12</option>
+                        <option value='13'>13</option>
+                        <option value='14'>14</option>
+                        <option value='15'>15</option>
+                    </select>
                 </label>
                 <button disabled={isButtonDisabled} type='submit'>
                     Add to Order
