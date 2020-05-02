@@ -90,6 +90,7 @@ const Topping = () => {
                 name="name"
                 onChange={inputChange}
                 value={formState.name}
+                data-cy="name"
                 />
                 {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
             </label>
@@ -101,8 +102,7 @@ const Topping = () => {
                     <select 
                         id='size' 
                         name='size' 
-                        onChange={inputChange} 
-                        data-cy="size">
+                        onChange={inputChange} >
                         <option value='1'>Select</option>
                         <option value='2'>Small</option>
                         <option value='3'>Medium</option>

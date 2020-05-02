@@ -4,23 +4,18 @@ describe('Test our Form Input', function() {
     })
 
     it('Check if Form is working', function() {
-        // Check in Size
-        cy.get('select')
-        .select('small')
-        .should('have.value', '1');
-        // Check in Email
-        cy.get('[data-cy="email"]')
-        .type('email@email.com')
-        .should("have.value", "email@email.com");
-        // Check the password
-        cy.get('[data-cy="password"]')
-        .type('Password')
-        .should('have.value', 'Password');
+        // Check in Name
+        cy.get('[data-cy="name"]')
+        .type('Anthony')
+        .should("have.value", "Anthony");
+        // check sauce
+        cy.get('[type="radio"]')
+        .first().check()
         // Check the check box
         cy.get('[type="checkbox"]')
         .check().should('be.checked');
         //check submit button
-        cy.contains('Submit')
+        cy.contains('Add to Order')
         .click();
     })
 })
