@@ -138,7 +138,7 @@ const Topping = () => {
                         <input 
                             type='checkbox' 
                             name='toppings' 
-                            checked={initialFormState.toppings}
+                            checked={formState.toppings}
                             onChange={inputChange}
                         />
                         Pepperoni
@@ -147,7 +147,7 @@ const Topping = () => {
                         <input 
                             type='checkbox' 
                             name='toppings' 
-                            checked={initialFormState.toppings}
+                            checked={formState.toppings}
                             onChange={inputChange}
                         />
                         Sausage
@@ -156,7 +156,7 @@ const Topping = () => {
                         <input 
                             type='checkbox' 
                             name='toppings' 
-                            checked={initialFormState.toppings}
+                            checked={formState.toppings}
                             onChange={inputChange}
                         />
                         Canadian Bacon
@@ -165,7 +165,7 @@ const Topping = () => {
                         <input 
                             type='checkbox' 
                             name='toppings' 
-                            checked={initialFormState.toppings}
+                            checked={formState.toppings}
                             onChange={inputChange}
                         />
                         Spicy Italian Sausage
@@ -174,7 +174,7 @@ const Topping = () => {
                         <input 
                             type='checkbox' 
                             name='toppings' 
-                            checked={initialFormState.toppings}
+                            checked={formState.toppings}
                             onChange={inputChange}
                         />
                         Grilled Chicken
@@ -183,7 +183,7 @@ const Topping = () => {
                         <input 
                             type='checkbox' 
                             name='toppings' 
-                            checked={initialFormState.toppings}
+                            checked={formState.toppings}
                             onChange={inputChange}
                         />
                         Onions
@@ -192,7 +192,7 @@ const Topping = () => {
                         <input 
                             type='checkbox' 
                             name='toppings' 
-                            checked={initialFormState.toppings}
+                            checked={formState.toppings}
                             onChange={inputChange}
                         />
                         Green Pepper
@@ -201,7 +201,7 @@ const Topping = () => {
                         <input 
                             type='checkbox' 
                             name='toppings' 
-                            checked={initialFormState.toppings}
+                            checked={formState.toppings}
                             onChange={inputChange}
                         />
                         Diced Tomatoes
@@ -210,7 +210,7 @@ const Topping = () => {
                         <input 
                             type='checkbox' 
                             name='toppings' 
-                            checked={initialFormState.toppings}
+                            checked={formState.toppings}
                             onChange={inputChange}
                         />
                         Black Olives
@@ -219,7 +219,7 @@ const Topping = () => {
                         <input 
                             type='checkbox' 
                             name='toppings' 
-                            checked={initialFormState.toppings}
+                            checked={formState.toppings}
                             onChange={inputChange}
                         />
                         Roasted Garlic
@@ -228,7 +228,7 @@ const Topping = () => {
                         <input 
                             type='checkbox' 
                             name='toppings' 
-                            checked={initialFormState.toppings}
+                            checked={formState.toppings}
                             onChange={inputChange}
                         />
                         Artichoke Hearts
@@ -237,7 +237,7 @@ const Topping = () => {
                         <input 
                             type='checkbox' 
                             name='toppings' 
-                            checked={initialFormState.toppings}
+                            checked={formState.toppings}
                             onChange={inputChange}
                         />
                         Three Cheese
@@ -246,7 +246,7 @@ const Topping = () => {
                         <input 
                             type='checkbox' 
                             name='toppings' 
-                            checked={initialFormState.toppings}
+                            checked={formState.toppings}
                             onChange={inputChange}
                         />
                         Pineapple
@@ -255,7 +255,7 @@ const Topping = () => {
                         <input 
                             type='checkbox' 
                             name='toppings' 
-                            checked={initialFormState.toppings}
+                            checked={formState.toppings}
                             onChange={inputChange}
                         />
                         Extra Cheese
