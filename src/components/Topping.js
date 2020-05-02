@@ -73,11 +73,11 @@ const Topping = () => {
     const inputChange = e => {
         e.persist();
         const newFormData = {
-            ...initialFormState, 
-            [e.target.name]: 
-                e.target.type === 'checkbox' ? e.target.checked : e.target.value
-        }
-        validateChange(e);
+            ...formState,
+            [e.target.name]:
+            e.target.type === "checkbox" ? e.target.checked : e.target.value
+        }; 
+        validateChange(e); 
         setFormState(newFormData);
     }
 
@@ -419,7 +419,7 @@ const Topping = () => {
                         <option value='15'>15</option>
                     </select>
                 </label>
-                <button disabled={isButtonDisabled} type='submit'>
+            <button type='submit'>
                     Add to Order
                 </button>
             </div>
