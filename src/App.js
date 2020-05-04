@@ -14,7 +14,6 @@ const App = () => {
       <div className='header'>
         <div className='title'>
           <h1>Lambda Eats</h1>
-          <p>You can remove this code and create your own header</p>
         </div>
         <nav className='nav'>
           <Link to='/' className='navButton'>Home</Link>

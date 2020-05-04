@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import Toppings from './Toppings'
 import axios from 'axios';
 import * as yup from 'yup';
-import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
+import { CustomInput, FormGroup, Label } from 'reactstrap';
 import '../App.css';
 
 const Topping = () => {
@@ -66,6 +66,11 @@ const Topping = () => {
 
     const formSchema = yup.object().shape({
         name: yup.string().required("Name is a required field"),
+        size: yup.string().required('Must Choose a Size'),
+        sauce: yup.string().required('Must Choose a Sauce'),
+        toppings: yup.boolean().oneOf([true], 'Please Choose a Topping'),
+        instructions: yup.string().required('Please Input your Special Instructions'),
+        quantity: yup.string().required(),
     })
 
     const inputChange = e => {
@@ -73,7 +78,7 @@ const Topping = () => {
         const newFormData = {
             ...formState,
             [e.target.name]:
-            e.target.type === "checkbox" ? e.target.checked : e.target.value
+            e.target.type === 'checkbox' ? e.target.checked : e.target.value
         }; 
         validateChange(e); 
         setFormState(newFormData);
@@ -102,15 +107,16 @@ const Topping = () => {
                     <select 
                         id='size' 
                         name='size' 
-                        onChange={inputChange} >
-                        <option value='1'>Select</option>
-                        <option value='2'>Small</option>
-                        <option value='3'>Medium</option>
-                        <option value='4'>Large</option>
+                        onChange={inputChange} 
+                        data-cy="size">
+                        <option value='select'>Select</option>
+                        <option value='small'>Small</option>
+                        <option value='medium'>Medium</option>
+                        <option value='large'>Large</option>
                     </select>
                 </label>
                 {/* Sauce Choice */}
-                <label htmlFor='sauce' className='sauce' className='sauce'>
+                <label htmlFor='sauce' className='sauce'>
                     <h4 className='sauceHeader'>Choice of Sauce</h4>
                     <p>Required</p>
                     {/* Original Sauce */}
@@ -118,7 +124,9 @@ const Topping = () => {
                         type='radio' 
                         id='original' 
                         name='sauce' 
-                        value='original' />
+                        value='original'
+                        onChange={inputChange}
+                        />
                     <label htmlFor='original'>Original Red</label><br/>
                     {/* Garlic Sauce */}
                     <input 
@@ -126,6 +134,7 @@ const Topping = () => {
                         id='garlic' 
                         name='sauce' 
                         value='garlic'
+                        onChange={inputChange}
                         />
                     <label htmlFor='garlic'>Garlic Ranch</label><br/>
                     {/* BBQ Sauce */}
@@ -134,6 +143,7 @@ const Topping = () => {
                         id='bbq' 
                         name='sauce' 
                         value='bbq'
+                        onChange={inputChange}
                         />
                     <label htmlFor='bbq'>BBQ Sauce</label><br/>
                     {/* Spinach Sauce */}
@@ -142,12 +152,13 @@ const Topping = () => {
                         id='spinach' 
                         name='sauce' 
                         value='spinach'
+                        onChange={inputChange}
                         />
                     <label htmlFor='spinach'>Spinach Alfredo</label>
                 </label>
                 {/* ReactStrape checkboxes */}
                     <FormGroup className='toppings'>
-                        <Label for='toppings' className='toppingsHeader'>
+                        <Label htmlFor='toppings' className='toppingsHeader'>
                             Add Toppings
                         </Label>
                         <div className='toppingsCheckbox'>
@@ -156,245 +167,139 @@ const Topping = () => {
                                 id='pepperoni'
                                 label='Pepperoni'
                                 className='topping'
+                                name='toppings'
+                                value='pepperoni'
+                                checked={formState.toppings}
+                                onChange={inputChange}
                             />
                             <CustomInput
                                 type='checkbox'
                                 id='sausage'
                                 label='Sausage'
                                 className='topping'
+                                name='toppings'
+                                value='sausage'
+                                checked={formState.toppings}
+                                onChange={inputChange}
                             />
                             <CustomInput
                                 type='checkbox'
                                 id='canadianbacon'
                                 label='Canadian Bacon'
                                 className='topping'
+                                value='canadianbacon'
+                                checked={formState.toppings}
+                                onChange={inputChange}
                             />
                             <CustomInput
                                 type='checkbox'
-                                id='pepperoni'
+                                id='spicysausage'
                                 label='Spicy Italian Sausage'
                                 className='topping'
+                                value='spicysausage'
+                                checked={formState.toppings}
+                                onChange={inputChange}
                             />
                             <CustomInput
                                 type='checkbox'
-                                id='pepperoni'
+                                id='grilledchicken'
                                 label='Grilled Chicken'
                                 className='topping'
+                                value='grilledchicken'
+                                checked={formState.toppings}
+                                onChange={inputChange}
                             />
                             <CustomInput
                                 type='checkbox'
-                                id='pepperoni'
+                                id='onions'
                                 label='Onions'
                                 className='topping'
+                                value='onions'
+                                checked={formState.toppings}
+                                onChange={inputChange}
                             />
                             <CustomInput
                                 type='checkbox'
-                                id='pepperoni'
+                                id='greenpepper'
                                 label='Green Pepper'
                                 className='topping'
+                                value='greenpepper'
+                                checked={formState.toppings}
+                                onChange={inputChange}
                             />
                             <CustomInput
                                 type='checkbox'
-                                id='pepperoni'
+                                id='dicedtomatoes'
                                 label='Diced Tomatoes'
                                 className='topping'
+                                value='dicedtomatoes'
+                                checked={formState.toppings}
+                                onChange={inputChange}
                             />
                             <CustomInput
                                 type='checkbox'
-                                id='pepperoni'
+                                id='blackolives'
                                 label='Black Olives'
                                 className='topping'
+                                value='blackolives'
+                                checked={formState.toppings}
+                                onChange={inputChange}
                             />
                             <CustomInput
                                 type='checkbox'
-                                id='pepperoni'
+                                id='garlic'
                                 label='Roasted Garlic'
                                 className='topping'
+                                value='garlic'
+                                checked={formState.toppings}
+                                onChange={inputChange}
                             />
                             <CustomInput
                                 type='checkbox'
-                                id='pepperoni'
+                                id='artichoke'
                                 label='Artichoke Hearts'
                                 className='topping'
+                                value='artichoke'
+                                checked={formState.toppings}
+                                onChange={inputChange}
                             />
                             <CustomInput
                                 type='checkbox'
-                                id='pepperoni'
+                                id='threecheese'
                                 label='Three Cheese'
                                 className='topping'
+                                value='threecheese'
+                                checked={formState.toppings}
+                                onChange={inputChange}
                             />
                             <CustomInput
                                 type='checkbox'
-                                id='pepperoni'
+                                id='pineapple'
                                 label='Pineapple'
                                 className='topping'
+                                value='pineapple'
+                                checked={formState.toppings}
+                                onChange={inputChange}
                             />
                             <CustomInput
                                 type='checkbox'
-                                id='pepperoni'
+                                id='extracheese'
                                 label='Extra Cheese'
                                 className='topping'
+                                value='extracheese'
+                                checked={formState.toppings}
+                                onChange={inputChange}
                             />
                         </div>
                         <CustomInput
                                 type='checkbox'
-                                id='pepperoni'
+                                id='notoppings'
                                 label='No Toppings'
+                                value='notoppings'
+                                checked={formState.toppings}
+                                onChange={inputChange}
                             />
                     </FormGroup>
-                {/* Toppings div */}
-                {/* <div>
-                    <label htmlFor='toppings' className='toppings'>
-                        <input 
-                            type='checkbox' 
-                            name='toppings' 
-                            checked={formState.toppings}
-                            onChange={inputChange}
-                            value="pepperoni"
-                        />
-                        Pepperoni
-                    </label>
-                    <label htmlFor='toppings' className='toppings'>
-                        <input 
-                            type='checkbox' 
-                            name='toppings' 
-                            checked={formState.toppings}
-                            onChange={inputChange}
-                            value="sausage"
-                        />
-                        Sausage
-                    </label>
-                    <label htmlFor='toppings' className='toppings'>
-                        <input 
-                            type='checkbox' 
-                            name='toppings' 
-                            checked={formState.toppings}
-                            onChange={inputChange}
-                            value="bacon"
-                        />
-                        Canadian Bacon
-                    </label>
-                    <label htmlFor='toppings' className='toppings'>
-                        <input 
-                            type='checkbox' 
-                            name='toppings' 
-                            checked={formState.toppings}
-                            onChange={inputChange}
-                            value="spicy"
-                        />
-                        Spicy Italian Sausage
-                    </label>
-                    <label htmlFor='toppings' className='toppings'>
-                        <input 
-                            type='checkbox' 
-                            name='toppings' 
-                            checked={formState.toppings}
-                            onChange={inputChange}
-                            value="chicken"
-                        />
-                        Grilled Chicken
-                    </label>
-                    <label htmlFor='toppings' className='toppings'>
-                        <input 
-                            type='checkbox' 
-                            name='toppings' 
-                            checked={formState.toppings}
-                            onChange={inputChange}
-                            value="onions"
-                        />
-                        Onions
-                    </label>
-                    <label htmlFor='toppings' className='toppings'>
-                        <input 
-                            type='checkbox' 
-                            name='toppings' 
-                            checked={formState.toppings}
-                            onChange={inputChange}
-                            value="pepper"
-                        />
-                        Green Pepper
-                    </label>
-                    <label htmlFor='toppings' className='toppings'>
-                        <input 
-                            type='checkbox' 
-                            name='toppings' 
-                            checked={formState.toppings}
-                            onChange={inputChange}
-                            value="tomatoes"
-                        />
-                        Diced Tomatoes
-                    </label>
-                    <label htmlFor='toppings' className='toppings'>
-                        <input 
-                            type='checkbox' 
-                            name='toppings' 
-                            checked={formState.toppings}
-                            onChange={inputChange}
-                            value="olives"
-                        />
-                        Black Olives
-                    </label>
-                    <label htmlFor='toppings' className='toppings'>
-                        <input 
-                            type='checkbox' 
-                            name='toppings' 
-                            checked={formState.toppings}
-                            onChange={inputChange}
-                            value="garlic"
-                        />
-                        Roasted Garlic
-                    </label>
-                    <label htmlFor='toppings' className='toppings'>
-                        <input 
-                            type='checkbox' 
-                            name='toppings' 
-                            checked={formState.toppings}
-                            onChange={inputChange}
-                            value="artichoke"
-                        />
-                        Artichoke Hearts
-                    </label>
-                    <label htmlFor='toppings' className='toppings'>
-                        <input 
-                            type='checkbox' 
-                            name='toppings' 
-                            checked={formState.toppings}
-                            onChange={inputChange}
-                            value="threecheese"
-                        />
-                        Three Cheese
-                    </label>
-                    <label htmlFor='toppings' className='toppings'>
-                        <input 
-                            type='checkbox' 
-                            name='toppings' 
-                            checked={formState.toppings}
-                            onChange={inputChange}
-                            value="pineapple"
-                        />
-                        Pineapple
-                    </label>
-                    <label htmlFor='toppings' className='toppings'>
-                        <input 
-                            type='checkbox' 
-                            name='toppings' 
-                            checked={formState.toppings}
-                            onChange={inputChange}
-                            value="extracheese"
-                        />
-                        Extra Cheese
-                    </label>
-                    <label htmlFor='toppings' className='toppings'>
-                        <input 
-                            type='checkbox' 
-                            name='toppings' 
-                            checked={formState.toppings}
-                            onChange={inputChange}
-                            value="notoppings"
-                        />
-                        No Toppings
-                    </label>
-                </div> */}
                 {/* Instructions for extra order */}
                 <label htmlFor='instructions' className='instructions'>
                 <h4 className='instrHeader'>Special instructions</h4>
@@ -409,7 +314,7 @@ const Topping = () => {
                 {/* Quantity of Pizza's */}
                 <label htmlFor='quantity' className='quantity'>
                     <h4>Quantity</h4>
-                <select id='quantity' name='quantity' onChange={inputChange}>
+                <select id='quantity' name='quantity' onChange={inputChange} data-cy="quantity">
                         <option value='1'>1</option>
                         <option value='2'>2</option>
                         <option value='3'>3</option>
@@ -427,9 +332,7 @@ const Topping = () => {
                         <option value='15'>15</option>
                     </select>
                 </label>
-            <button type='submit' disabled={isButtonDisabled}>
-                    Add to Order
-                </button>
+            <button disabled={isButtonDisabled} type='submit'>Add to Order</button>
             </div>
             <pre>{JSON.stringify(post, null, 2)}</pre>
         </form>
